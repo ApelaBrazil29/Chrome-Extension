@@ -1,0 +1,1 @@
+{"manifest_version": 3,"name": "LeadTracker","version": "1.0","description": "Track and save your leads","permissions": ["storage", "tabs"],"action": {"default_popup": "index.html","default_title": "LeadTracker"}}
