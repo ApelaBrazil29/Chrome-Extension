@@ -58,12 +58,29 @@ function renderLeads() {
     let listItems = ""
 
     for (let i = 0; i < myLeads.length; i++) {
-        listItems += `
-            <li>
-                <a href='${myLeads[i]}' target='_blank'>
-                    ${myLeads[i]}
-                </a>
-            </li>`
+        let item = myLeads[i]
+
+        // Check if it's a valid URL
+        if (item.includes(".")) {
+            let url = item
+
+            if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                url = "https://" + url
+            }
+
+            listItems += `
+                <li>
+                    <a href="${url}" target="_blank">
+                        ${item}
+                    </a>
+                </li>`
+        } else {
+            // Normal text
+            listItems += `
+                <li>
+                    ${item}
+                </li>`
+        }
     }
 
     ulEl.innerHTML = listItems
